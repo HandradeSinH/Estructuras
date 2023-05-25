@@ -245,10 +245,10 @@ public class Ventana extends javax.swing.JFrame {
         String nombre = cajaNombre.getText();
         String autor = cajaAutor.getText();
         String genero = cajaGenero.getText();
-        String n = nombre.toUpperCase().charAt(0) + nombre.substring(1, nombre.length()).toLowerCase();
-        String a = autor.toUpperCase().charAt(0) + autor.substring(1, autor.length()).toLowerCase();
-        String g = genero.toUpperCase().charAt(0) + genero.substring(1, genero.length()).toLowerCase();
-        Libros nuevoLibro = new Libros(n, a, g);
+        //String n = nombre.toUpperCase().charAt(0) + nombre.substring(1, nombre.length()).toLowerCase();
+        //String a = autor.toUpperCase().charAt(0) + autor.substring(1, autor.length()).toLowerCase();
+        //String g = genero.toUpperCase().charAt(0) + genero.substring(1, genero.length()).toLowerCase();
+        Libros nuevoLibro = new Libros(nombre, autor, genero);
         listaLibros.add(nuevoLibro);
         actualizaListado1(listaLibros);
     }
@@ -271,7 +271,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private void ordenar(List<Libros> lista) {
         Orden orden = new Orden();
-        orden.bubbleSort(lista);
+        orden.bubbleSortArray(lista);
         actualizaListado2(lista);
     }
 

@@ -37,6 +37,6 @@ public class Libros {
 
     @Override
     public String toString() {
-        return "nombre: " + nombre +", autor: " + autor +", genero: " + genero+" ";
+        return "nombre: " + nombre +", autor: " + autor +", genero: " + ""+genero+" ";
     }
 }

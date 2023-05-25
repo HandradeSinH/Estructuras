@@ -12,13 +12,19 @@ import java.util.List;
  * @author danie
  */
 public class Orden {
-    public void bubbleSort(List<Libros> arreglo) {
-        for (int i = 0; i < arreglo.size() - 1; i++) {
-            for (int j = 0; j < arreglo.size() - i - 1; j++) {
-                if (arreglo.get(j).getNombre().hashCode()> arreglo.get(j + 1).getNombre().hashCode()) {
-                    Libros aux = arreglo.get(j);
+
+    public void bubbleSortArray(List<Libros> arreglo) {
+        int n = arreglo.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                var a = arreglo.get(j).nombre.hashCode();
+                var b = arreglo.get(j + 1).nombre.hashCode();
+                System.out.println(a+"-----"+b);
+                if (a > b) {
+                    // swap arr[j+1] and arr[j]
+                    Libros temp = arreglo.get(j);
                     arreglo.set(j, arreglo.get(j + 1));
-                    arreglo.set(j + 1, aux);
+                    arreglo.set(j + 1, temp);
                 }
             }
         }
