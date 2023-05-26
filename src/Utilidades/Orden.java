@@ -17,10 +17,7 @@ public class Orden {
         int n = arreglo.size();
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                var a = arreglo.get(j).nombre.hashCode();
-                var b = arreglo.get(j + 1).nombre.hashCode();
-                System.out.println(a+"-----"+b);
-                if (a > b) {
+                if (arreglo.get(j).getNombre().compareToIgnoreCase(arreglo.get(j+1).getNombre())>1) {
                     // swap arr[j+1] and arr[j]
                     Libros temp = arreglo.get(j);
                     arreglo.set(j, arreglo.get(j + 1));
@@ -29,4 +26,5 @@ public class Orden {
             }
         }
     }
+    
 }

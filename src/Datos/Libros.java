@@ -2,8 +2,8 @@ package Datos;
 
 public class Libros {
     public String nombre;
-    public String autor;
-    public String genero;
+    private String autor;
+    private String genero;
 
     public Libros(String nombre, String autor, String genero) {
         this.nombre = nombre;

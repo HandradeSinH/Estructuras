@@ -57,6 +57,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaSinOrdenar = new javax.swing.JTextArea();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(null);
@@ -77,7 +78,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cajaNombre);
-        cajaNombre.setBounds(140, 60, 160, 22);
+        cajaNombre.setBounds(140, 60, 200, 30);
         cajaNombre.getAccessibleContext().setAccessibleName("Nombre");
 
         cajaAutor.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +87,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cajaAutor);
-        cajaAutor.setBounds(140, 120, 160, 22);
+        cajaAutor.setBounds(140, 140, 200, 30);
         cajaAutor.getAccessibleContext().setAccessibleName("Autor");
 
         cajaGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -95,24 +96,28 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cajaGenero);
-        cajaGenero.setBounds(140, 90, 160, 22);
+        cajaGenero.setBounds(140, 100, 200, 30);
         cajaGenero.getAccessibleContext().setAccessibleName("Genero");
 
+        jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nombre del libro:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(10, 60, 130, 20);
+        jLabel1.setBounds(0, 60, 140, 30);
 
+        jLabel2.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Genero:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(10, 90, 130, 20);
+        jLabel2.setBounds(40, 100, 130, 30);
 
+        jLabel3.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Autor:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(10, 120, 130, 20);
+        jLabel3.setBounds(50, 140, 120, 30);
 
+        agregar.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         agregar.setText("Agregar");
         agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +125,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel2.add(agregar);
-        agregar.setBounds(340, 60, 90, 30);
+        agregar.setBounds(370, 60, 130, 50);
 
         btSalir.setText("Salir");
         btSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +141,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel7.setText("LISTA ORDENADA");
         jLabel7.setToolTipText("");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(120, 360, 230, 30);
+        jLabel7.setBounds(620, 260, 230, 30);
 
         jLabel8.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -149,8 +154,9 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaOrdenada);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 400, 410, 120);
+        jScrollPane1.setBounds(520, 300, 410, 200);
 
+        ordenar.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         ordenar.setText("Ordenar");
         ordenar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,26 +164,30 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel2.add(ordenar);
-        ordenar.setBounds(340, 110, 90, 30);
+        ordenar.setBounds(370, 120, 130, 50);
 
         jLabel9.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("LISTA DE LIBROS");
         jLabel9.setToolTipText("");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(110, 180, 230, 30);
+        jLabel9.setBounds(620, 10, 230, 50);
 
         listaSinOrdenar.setColumns(20);
         listaSinOrdenar.setRows(5);
         jScrollPane2.setViewportView(listaSinOrdenar);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 220, 410, 120);
+        jScrollPane2.setBounds(520, 60, 410, 190);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(60, 240, 150, 30);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(10, 10, 470, 560);
+        jPanel2.setBounds(10, 10, 1010, 560);
 
-        setSize(new java.awt.Dimension(507, 590));
+        setSize(new java.awt.Dimension(1047, 590));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -224,6 +234,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTextField cajaAutor;
     private javax.swing.JTextField cajaGenero;
     private javax.swing.JTextField cajaNombre;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
