@@ -168,12 +168,12 @@
               <Font name="Bookman Old Style" size="24" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="LISTA ORDENADA"/>
+            <Property name="text" type="java.lang.String" value="LISTA ORDENADA(LinkedList)"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="390" width="230" height="30"/>
+              <AbsoluteConstraints x="740" y="380" width="370" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -197,7 +197,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="430" width="690" height="120"/>
+              <AbsoluteConstraints x="560" y="420" width="690" height="130"/>
             </Constraint>
           </Constraints>
 
@@ -238,7 +238,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="50" width="230" height="30"/>
+              <AbsoluteConstraints x="810" y="30" width="230" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -248,7 +248,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="90" width="690" height="110"/>
+              <AbsoluteConstraints x="560" y="70" width="690" height="120"/>
             </Constraint>
           </Constraints>
 
@@ -280,7 +280,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Bookman Old Style" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="BubbleSort ArrayList"/>
+            <Property name="text" type="java.lang.String" value="BubbleSort Array"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordeanrbubblearrayActionPerformed"/>
@@ -312,7 +312,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Bookman Old Style" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="MergeSort ArrayList"/>
+            <Property name="text" type="java.lang.String" value="MergeSort Array"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordenarmergeArrayActionPerformed"/>
@@ -344,7 +344,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Bookman Old Style" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CountingSort ArrayList"/>
+            <Property name="text" type="java.lang.String" value="CountingSort Array"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordenarcountingArrayActionPerformed"/>
@@ -376,7 +376,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Bookman Old Style" size="12" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="RadixSort ArrayList"/>
+            <Property name="text" type="java.lang.String" value="RadixSort Array"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ordenaradixArrayActionPerformed"/>
@@ -443,12 +443,12 @@
               <Font name="Bookman Old Style" size="24" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="LISTA ORDENADA"/>
+            <Property name="text" type="java.lang.String" value="LISTA ORDENADA(Arreglo)"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="810" y="210" width="230" height="30"/>
+              <AbsoluteConstraints x="750" y="200" width="340" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -458,7 +458,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="560" y="250" width="690" height="120"/>
+              <AbsoluteConstraints x="560" y="240" width="690" height="130"/>
             </Constraint>
           </Constraints>
 

@@ -11,8 +11,7 @@ import java.util.LinkedList;
 public class Ventana extends javax.swing.JFrame {
 
     private LinkedList<Libros> listaLibrosLinked = new LinkedList<>();
-    int tam = listaLibrosLinked.size();
-    private Libros[] listalibrosArray = new Libros[5];
+    private Libros[] listalibrosArray = new Libros[1];
     private Orden orden = new Orden();
 
     public Ventana() {
@@ -130,10 +129,10 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("LISTA ORDENADA");
+        jLabel7.setText("LISTA ORDENADA(LinkedList)");
         jLabel7.setToolTipText("");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(810, 390, 230, 30);
+        jLabel7.setBounds(740, 380, 370, 30);
 
         jLabel8.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -146,7 +145,7 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaOrdenadaLinked);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(560, 430, 690, 120);
+        jScrollPane1.setBounds(560, 420, 690, 130);
 
         ordenarmergeLinked.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
         ordenarmergeLinked.setText("MergeSort LinkedList");
@@ -163,14 +162,14 @@ public class Ventana extends javax.swing.JFrame {
         jLabel9.setText("LISTA DE LIBROS");
         jLabel9.setToolTipText("");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(810, 50, 230, 30);
+        jLabel9.setBounds(810, 30, 230, 30);
 
         listaSinOrdenar.setColumns(20);
         listaSinOrdenar.setRows(5);
         jScrollPane2.setViewportView(listaSinOrdenar);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(560, 90, 690, 110);
+        jScrollPane2.setBounds(560, 70, 690, 120);
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel4.setText("Orden por año de salida");
@@ -178,7 +177,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel4.setBounds(200, 440, 170, 30);
 
         ordeanrbubblearray.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        ordeanrbubblearray.setText("BubbleSort ArrayList");
+        ordeanrbubblearray.setText("BubbleSort Array");
         ordeanrbubblearray.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordeanrbubblearrayActionPerformed(evt);
@@ -198,7 +197,7 @@ public class Ventana extends javax.swing.JFrame {
         ordenarbubbleLinked.setBounds(320, 340, 190, 30);
 
         ordenarmergeArray.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        ordenarmergeArray.setText("MergeSort ArrayList");
+        ordenarmergeArray.setText("MergeSort Array");
         ordenarmergeArray.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordenarmergeArrayActionPerformed(evt);
@@ -218,7 +217,7 @@ public class Ventana extends javax.swing.JFrame {
         ordenaradixLinked.setBounds(320, 490, 190, 30);
 
         ordenarcountingArray.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        ordenarcountingArray.setText("CountingSort ArrayList");
+        ordenarcountingArray.setText("CountingSort Array");
         ordenarcountingArray.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordenarcountingArrayActionPerformed(evt);
@@ -238,7 +237,7 @@ public class Ventana extends javax.swing.JFrame {
         ordenarcountingLinked.setBounds(320, 530, 190, 30);
 
         ordenaradixArray.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        ordenaradixArray.setText("RadixSort ArrayList");
+        ordenaradixArray.setText("RadixSort Array");
         ordenaradixArray.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ordenaradixArrayActionPerformed(evt);
@@ -273,17 +272,17 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("LISTA ORDENADA");
+        jLabel11.setText("LISTA ORDENADA(Arreglo)");
         jLabel11.setToolTipText("");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(810, 210, 230, 30);
+        jLabel11.setBounds(750, 200, 340, 30);
 
         listaOrdenadaArray.setColumns(20);
         listaOrdenadaArray.setRows(5);
         jScrollPane3.setViewportView(listaOrdenadaArray);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(560, 250, 690, 120);
+        jScrollPane3.setBounds(560, 240, 690, 130);
 
         exit.setText("Salir");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -408,6 +407,7 @@ public class Ventana extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void ingresar() {
+
         String nombre = cajaNombre.getText();
         String autor = cajaAutor.getText();
         String genero = cajaGenero.getText();
@@ -416,29 +416,13 @@ public class Ventana extends javax.swing.JFrame {
         String a = autor.toUpperCase().charAt(0) + autor.substring(1, autor.length()).toLowerCase();
         String g = genero.toUpperCase().charAt(0) + genero.substring(1, genero.length()).toLowerCase();
         Libros nuevoLibro = new Libros(n, a, g, ano);
-        agregararray(listalibrosArray, nuevoLibro);
+
         listaLibrosLinked.add(nuevoLibro);
-        actualizaListado(listalibrosArray);
+        listalibrosArray = listaLibrosLinked.toArray(new Libros[listaLibrosLinked.size()]);
+
     }
 
-    private void agregararray(Libros[] arreglo, Libros libro) {
-
-        int indice = -1;
-        for (int i = 0; i < arreglo.length; i++) {
-            if (arreglo[i] == null) {
-                indice = i;
-                break;
-            }
-        }
-        // Verificar si se encontró una posición disponible
-        if (indice != -1) {
-            arreglo[indice] = libro;
-        } else {
-            System.out.println("No se puede añadir");
-        }
-    }
-
-    private void actualizaListado(Libros[] listas) {
+    private void actualizaListado(LinkedList<Libros> listas) {
         StringBuilder lista = new StringBuilder();
         for (Libros libros : listas) {
             lista.append(libros.toString()).append("\n");
@@ -501,7 +485,8 @@ public class Ventana extends javax.swing.JFrame {
         orden.radixSortArray(listA);
         actualizaListadOrdenadaArray(listA);
     }
-    private void salir(){
+
+    private void salir() {
         System.exit(0);
     }
 }
