@@ -2,6 +2,7 @@ package utilidad;
 
 import informacion.Libros;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -29,6 +30,7 @@ public class Orden {
         for (int n = arreglo.length, i = 0; i < n - 1; ++i) {
             for (int j = 0; j < n - i - 1; ++j) {
                 if (arreglo[j].getNombre().compareToIgnoreCase(arreglo[j + 1].getNombre()) > arreglo[j + 1].getNombre().compareToIgnoreCase(arreglo[j + 1].getNombre())) {
+
                     Libros temp = arreglo[j];
                     arreglo[j] = arreglo[j + 1];
                     arreglo[j + 1] = temp;
@@ -42,7 +44,6 @@ public class Orden {
         int j = 0;
         int k = 0;
 
-        // Combinar las dos partes en orden ascendente
         while (i < pIzq.size() && j < pDer.size()) {
             if (pIzq.get(i).getNombre().compareTo(pDer.get(j).getNombre()) <= 0) {
                 arreglo.set(k, pIzq.get(i));
@@ -67,7 +68,7 @@ public class Orden {
         mergeLinked(arreglo, pDer, pIzq);
     }
 
-    public void mergeSort(Libros[] arreglo, int tamano) {
+    public void mergeSortArray(Libros[] arreglo, int tamano) {
         if (tamano < 2) {
             return;
         }
@@ -81,13 +82,13 @@ public class Orden {
         for (int i = mid; i < tamano; i++) {
             r[i - mid] = arreglo[i];
         }
-        mergeSort(l, mid);
-        mergeSort(r, tamano - mid);
+        mergeSortArray(l, mid);
+        mergeSortArray(r, tamano - mid);
 
-        merge(arreglo, l, r, mid, tamano - mid);
+        mergeArray(arreglo, l, r, mid, tamano - mid);
     }
 
-    public void merge(Libros[] arreglo, Libros[] l, Libros[] r, int left, int right) {
+    public void mergeArray(Libros[] arreglo, Libros[] l, Libros[] r, int left, int right) {
 
         int i = 0, j = 0, k = 0;
         while (i < left && j < right) {
@@ -104,8 +105,9 @@ public class Orden {
             arreglo[k++] = r[j++];
         }
     }
-    public void countingSortLinked(LinkedList<Libros> arreglo, int exp) {
-        
+
+    public void countingLinked(LinkedList<Libros> arreglo, int exp) {
+
         int n = arreglo.size();
         ArrayList<Libros> output = new ArrayList<>(Collections.nCopies(n, null));
 
@@ -135,8 +137,9 @@ public class Orden {
             arreglo.set(i, output.get(i));
         }
     }
-    public void countingSortArray(Libros[] arreglo, int exp) {
-        
+
+    public void countingArray(Libros[] arreglo, int exp) {
+
         int n = arreglo.length;
         ArrayList<Libros> output = new ArrayList<>(Collections.nCopies(n, null));
 
@@ -166,33 +169,103 @@ public class Orden {
             arreglo[i] = output.get(i);
         }
     }
+
+    public void countingSortArray(Libros[] arreglo) {
+        int n = arreglo.length;
+
+        String maxAñoSalida = Arrays.stream(arreglo)
+                .map(Libros::getAno)
+                .max(String::compareTo)
+                .orElse("");
+        String minAñoSalida = Arrays.stream(arreglo)
+                .map(Libros::getAno)
+                .min(String::compareTo)
+                .orElse("");
+
+        int range = Integer.parseInt(maxAñoSalida) - Integer.parseInt(minAñoSalida) + 1;
+
+        int[] count = new int[range];
+        for (Libros libro : arreglo) {
+            int index = Integer.parseInt(libro.getAno()) - Integer.parseInt(minAñoSalida);
+            count[index]++;
+        }
+
+        for (int i = 1; i < range; i++) {
+            count[i] += count[i - 1];
+        }
+
+        Libros[] sortedArr = new Libros[n];
+        for (int i = n - 1; i >= 0; i--) {
+            int index = Integer.parseInt(arreglo[i].getAno()) - Integer.parseInt(minAñoSalida);
+            sortedArr[count[index] - 1] = arreglo[i];
+            count[index]--;
+        }
+
+        System.arraycopy(sortedArr, 0, arreglo, 0, n);
+    }
+
+    public void countingSortLinked(LinkedList<Libros> arreglo) {
+        int n = arreglo.size();
+
+        String maxAñoSalida = arreglo.stream()
+                .map(Libros::getAno)
+                .max(String::compareTo)
+                .orElse("");
+        String minAñoSalida = arreglo.stream()
+                .map(Libros::getAno)
+                .min(String::compareTo)
+                .orElse("");
+
+        int range = Integer.parseInt(maxAñoSalida) - Integer.parseInt(minAñoSalida) + 1;
+
+        int[] count = new int[range];
+        for (Libros libro : arreglo) {
+            int index = Integer.parseInt(libro.getAno()) - Integer.parseInt(minAñoSalida);
+            count[index]++;
+        }
+
+        for (int i = 1; i < range; i++) {
+            count[i] += count[i - 1];
+        }
+
+        LinkedList<Libros> sortedList = new LinkedList<>();
+        for (int i = n - 1; i >= 0; i--) {
+            int index = Integer.parseInt(arreglo.get(i).getAno()) - Integer.parseInt(minAñoSalida);
+            sortedList.addFirst(arreglo.get(i));
+            count[index]--;
+        }
+
+        arreglo.clear();
+        arreglo.addAll(sortedList);
+    }
+
     public void radixSortLinked(LinkedList<Libros> arreglo) {
-        // Encontrar el valor máximo en el número de temporadas
-        int maxSeasons = 0;
+
+        int b = 0;
         for (Libros libro : arreglo) {
             int anos = Integer.parseInt(libro.getAno());
-            if (anos > maxSeasons) {
-                maxSeasons = anos;
+            if (anos > b) {
+                b = anos;
             }
         }
 
-        for (int exp = 1; maxSeasons / exp > 0; exp *= 10) {
-            countingSortLinked(arreglo, exp);
+        for (int exp = 1; b / exp > 0; exp *= 10) {
+            countingLinked(arreglo, exp);
         }
     }
+
     public void radixSortArray(Libros[] arreglo) {
-        // Encontrar el valor máximo en el número de temporadas
-        int maxSeasons = 0;
+
+        int v = 0;
         for (Libros libro : arreglo) {
             int anos3 = Integer.parseInt(libro.getAno());
-            if (anos3 > maxSeasons) {
-                maxSeasons = anos3;
+            if (anos3 > v) {
+                v = anos3;
             }
         }
 
-        // Realizar el ordenamiento radix sort
-        for (int exp = 1; maxSeasons / exp > 0; exp *= 10) {
-            countingSortArray(arreglo, exp);
+        for (int exp = 1; v / exp > 0; exp *= 10) {
+            countingArray(arreglo, exp);
         }
     }
 }

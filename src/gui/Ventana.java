@@ -1,8 +1,6 @@
 package gui;
 
 import informacion.Libros;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import utilidad.Orden;
 import java.util.LinkedList;
 
@@ -12,14 +10,14 @@ import java.util.LinkedList;
  */
 public class Ventana extends javax.swing.JFrame {
 
-    private LinkedList<Libros> listaLibrosLinked;
-    public Libros[] listalibrosArray = new Libros[1];
+    private LinkedList<Libros> listaLibrosLinked = new LinkedList<>();
+    int tam = listaLibrosLinked.size();
+    private Libros[] listalibrosArray = new Libros[5];
     private Orden orden = new Orden();
 
     public Ventana() {
         initComponents();
-        this.setTitle("5 por favor");
-        listaLibrosLinked = new LinkedList<>();
+        this.setTitle("5 Por Favor");
     }
 
     @SuppressWarnings("unchecked")
@@ -40,7 +38,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaOrdenada = new javax.swing.JTextArea();
+        listaOrdenadaLinked = new javax.swing.JTextArea();
         ordenarmergeLinked = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -57,6 +55,10 @@ public class Ventana extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         cajaAno = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listaOrdenadaArray = new javax.swing.JTextArea();
+        exit = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(null);
@@ -124,14 +126,14 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel2.add(agregar);
-        agregar.setBounds(370, 60, 110, 110);
+        agregar.setBounds(370, 60, 110, 150);
 
         jLabel7.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("LISTA ORDENADA");
         jLabel7.setToolTipText("");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(810, 320, 230, 30);
+        jLabel7.setBounds(810, 390, 230, 30);
 
         jLabel8.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -139,12 +141,12 @@ public class Ventana extends javax.swing.JFrame {
         jPanel2.add(jLabel8);
         jLabel8.setBounds(230, 10, 110, 30);
 
-        listaOrdenada.setColumns(20);
-        listaOrdenada.setRows(5);
-        jScrollPane1.setViewportView(listaOrdenada);
+        listaOrdenadaLinked.setColumns(20);
+        listaOrdenadaLinked.setRows(5);
+        jScrollPane1.setViewportView(listaOrdenadaLinked);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(560, 360, 690, 200);
+        jScrollPane1.setBounds(560, 430, 690, 120);
 
         ordenarmergeLinked.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
         ordenarmergeLinked.setText("MergeSort LinkedList");
@@ -168,7 +170,7 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane2.setViewportView(listaSinOrdenar);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(560, 90, 690, 200);
+        jScrollPane2.setBounds(560, 90, 690, 110);
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel4.setText("Orden por año de salida");
@@ -248,7 +250,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel5.setText("Orden Alfabetico");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(220, 280, 130, 30);
+        jLabel5.setBounds(220, 290, 130, 30);
 
         jLabel6.setFont(new java.awt.Font("Bookman Old Style", 2, 18)); // NOI18N
         jLabel6.setText("Seleccione el Metodo de Ordenamiento");
@@ -269,8 +271,31 @@ public class Ventana extends javax.swing.JFrame {
         jPanel2.add(cajaAno);
         cajaAno.setBounds(140, 180, 200, 30);
 
+        jLabel11.setFont(new java.awt.Font("Bookman Old Style", 0, 24)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("LISTA ORDENADA");
+        jLabel11.setToolTipText("");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(810, 210, 230, 30);
+
+        listaOrdenadaArray.setColumns(20);
+        listaOrdenadaArray.setRows(5);
+        jScrollPane3.setViewportView(listaOrdenadaArray);
+
+        jPanel2.add(jScrollPane3);
+        jScrollPane3.setBounds(560, 250, 690, 120);
+
+        exit.setText("Salir");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+        jPanel2.add(exit);
+        exit.setBounds(860, 563, 100, 30);
+
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(10, 10, 1280, 590);
+        jPanel2.setBounds(10, 10, 1280, 600);
 
         setSize(new java.awt.Dimension(1320, 669));
         setLocationRelativeTo(null);
@@ -293,40 +318,44 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarActionPerformed
 
     private void ordenarmergeLinkedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarmergeLinkedActionPerformed
-
+        mergeLinked(listaLibrosLinked);
     }//GEN-LAST:event_ordenarmergeLinkedActionPerformed
 
     private void ordeanrbubblearrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordeanrbubblearrayActionPerformed
-        ordenarbubbleArray(listalibrosArray);
+        bubbleArray(listalibrosArray);
     }//GEN-LAST:event_ordeanrbubblearrayActionPerformed
 
     private void ordenarbubbleLinkedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarbubbleLinkedActionPerformed
-        ordenarbubbleLinked(listaLibrosLinked);
+        bubbleLinked(listaLibrosLinked);
     }//GEN-LAST:event_ordenarbubbleLinkedActionPerformed
 
     private void ordenarmergeArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarmergeArrayActionPerformed
-        // TODO add your handling code here:
+        mergeArray(listalibrosArray);
     }//GEN-LAST:event_ordenarmergeArrayActionPerformed
 
     private void ordenaradixLinkedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenaradixLinkedActionPerformed
-        // TODO add your handling code here:
+        radixLinked(listaLibrosLinked);
     }//GEN-LAST:event_ordenaradixLinkedActionPerformed
 
     private void ordenarcountingArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarcountingArrayActionPerformed
-        // TODO add your handling code here:
+        countingArray(listalibrosArray);
     }//GEN-LAST:event_ordenarcountingArrayActionPerformed
 
     private void ordenarcountingLinkedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarcountingLinkedActionPerformed
-        // TODO add your handling code here:
+        countingLinked(listaLibrosLinked);
     }//GEN-LAST:event_ordenarcountingLinkedActionPerformed
 
     private void ordenaradixArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenaradixArrayActionPerformed
-        // TODO add your handling code here:
+        radixArray(listalibrosArray);
     }//GEN-LAST:event_ordenaradixArrayActionPerformed
 
     private void cajaAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaAnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cajaAnoActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        salir();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,8 +375,10 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTextField cajaAutor;
     private javax.swing.JTextField cajaGenero;
     private javax.swing.JTextField cajaNombre;
+    private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -360,9 +391,11 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JTextArea listaOrdenada;
+    private javax.swing.JTextArea listaOrdenadaArray;
+    private javax.swing.JTextArea listaOrdenadaLinked;
     private javax.swing.JTextArea listaSinOrdenar;
     private javax.swing.JButton ordeanrbubblearray;
     private javax.swing.JButton ordenaradixArray;
@@ -385,17 +418,27 @@ public class Ventana extends javax.swing.JFrame {
         Libros nuevoLibro = new Libros(n, a, g, ano);
         agregararray(listalibrosArray, nuevoLibro);
         listaLibrosLinked.add(nuevoLibro);
-        actualizaListado(listaLibrosLinked);
+        actualizaListado(listalibrosArray);
     }
 
-    private void agregararray(Libros[] lista, Libros libro) {
-        for (int i = 0; i < lista.length; i++) {
-            lista = Arrays.copyOf(lista, lista.length+1);
-            lista[i] = libro;
+    private void agregararray(Libros[] arreglo, Libros libro) {
+
+        int indice = -1;
+        for (int i = 0; i < arreglo.length; i++) {
+            if (arreglo[i] == null) {
+                indice = i;
+                break;
+            }
+        }
+        // Verificar si se encontró una posición disponible
+        if (indice != -1) {
+            arreglo[indice] = libro;
+        } else {
+            System.out.println("No se puede añadir");
         }
     }
 
-    private void actualizaListado(LinkedList<Libros> listas) {
+    private void actualizaListado(Libros[] listas) {
         StringBuilder lista = new StringBuilder();
         for (Libros libros : listas) {
             lista.append(libros.toString()).append("\n");
@@ -408,24 +451,57 @@ public class Ventana extends javax.swing.JFrame {
         for (Libros libros : listas) {
             lista.append(libros.toString()).append("\n");
         }
-        listaOrdenada.setText(lista.toString());
+        listaOrdenadaLinked.setText(lista.toString());
     }
 
     private void actualizaListadOrdenadaArray(Libros[] listas) {
-        StringBuilder lista = new StringBuilder();
+        StringBuilder lista1 = new StringBuilder();
         for (Libros libros : listas) {
-            lista.append(libros.toString()).append("\n");
+            lista1.append(libros.toString()).append("\n");
         }
-        listaOrdenada.setText(lista.toString());
+        listaOrdenadaArray.setText(lista1.toString());
     }
 
-    private void ordenarbubbleLinked(LinkedList<Libros> lista) {
+    private void bubbleLinked(LinkedList<Libros> lista) {
         orden.bubbleSortLinked(lista);
         actualizaListadOrdenadoLinked(lista);
     }
 
-    private void ordenarbubbleArray(Libros[] listA) {
+    private void bubbleArray(Libros[] listA) {
         orden.bubbleSortArray(listA);
-        actualizaListadOrdenadaArray(listalibrosArray);
+        actualizaListadOrdenadaArray(listA);
+    }
+
+    private void mergeLinked(LinkedList<Libros> lista) {
+        orden.mergeSortLinked(lista);
+        actualizaListadOrdenadoLinked(lista);
+    }
+
+    private void mergeArray(Libros[] listA) {
+        orden.mergeSortArray(listA, listA.length);
+        actualizaListadOrdenadaArray(listA);
+    }
+
+    private void countingLinked(LinkedList<Libros> lista) {
+        orden.countingSortLinked(lista);
+        actualizaListadOrdenadoLinked(lista);
+    }
+
+    private void countingArray(Libros[] listA) {
+        orden.countingSortArray(listA);
+        actualizaListadOrdenadaArray(listA);
+    }
+
+    private void radixLinked(LinkedList<Libros> lista) {
+        orden.radixSortLinked(lista);
+        actualizaListadOrdenadoLinked(lista);
+    }
+
+    private void radixArray(Libros[] listA) {
+        orden.radixSortArray(listA);
+        actualizaListadOrdenadaArray(listA);
+    }
+    private void salir(){
+        System.exit(0);
     }
 }
